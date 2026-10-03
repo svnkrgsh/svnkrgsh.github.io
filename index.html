@@ -1,0 +1,2057 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+
+>
+
+<title>
+    The Hidden Wild — Suvankar Ghosh
+</title>
+
+<meta
+name="description"
+content="The Hidden Wild — Wildlife, macro, animals and mobile photography by Suvankar Ghosh."
+
+>
+
+<style>
+
+/* ============================================================
+   RESET
+============================================================ */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+
+html{
+    scroll-behavior:smooth;
+}
+
+
+body{
+    background:#0b0b0b;
+    color:#f5f5f5;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    line-height:1.5;
+}
+
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+
+
+/* ============================================================
+   HEADER
+============================================================ */
+
+header{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+    right:0;
+
+    z-index:20;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    padding:22px 5vw;
+
+    background:rgba(11,11,11,.82);
+
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.06);
+}
+
+
+.logo{
+
+    font-size:18px;
+
+    letter-spacing:.18em;
+
+    text-transform:uppercase;
+
+    font-weight:500;
+}
+
+
+nav{
+
+    display:flex;
+
+    gap:28px;
+}
+
+
+nav a{
+
+    font-size:11px;
+
+    letter-spacing:.16em;
+
+    text-transform:uppercase;
+
+    color:
+        rgba(255,255,255,.7);
+
+    transition:.2s ease;
+}
+
+
+nav a:hover{
+
+    color:white;
+
+}
+
+
+
+/* ============================================================
+   HERO
+============================================================ */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    position:relative;
+
+    padding:
+        12vh
+        5vw
+        8vh;
+
+    background-image:
+
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.92),
+            rgba(0,0,0,.18)
+        ),
+
+        url("images/hummingbird.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+}
+
+
+.hero-content{
+
+    max-width:850px;
+
+}
+
+
+.eyebrow{
+
+    font-size:11px;
+
+    letter-spacing:.28em;
+
+    text-transform:uppercase;
+
+    color:
+        rgba(255,255,255,.65);
+
+    margin-bottom:18px;
+
+}
+
+
+.hero h1{
+
+    font-size:
+        clamp(
+            48px,
+            9vw,
+            120px
+        );
+
+    line-height:.9;
+
+    font-weight:300;
+
+    letter-spacing:-.045em;
+
+    margin-bottom:25px;
+
+}
+
+
+.hero p{
+
+    max-width:600px;
+
+    font-size:15px;
+
+    line-height:1.8;
+
+    color:
+        rgba(255,255,255,.72);
+
+}
+
+
+
+/* ============================================================
+   SECTIONS
+============================================================ */
+
+section{
+
+    padding:
+        110px
+        5vw;
+
+}
+
+
+.section-heading{
+
+    margin-bottom:45px;
+
+}
+
+
+.section-label{
+
+    font-size:10px;
+
+    letter-spacing:.25em;
+
+    text-transform:uppercase;
+
+    color:
+        rgba(255,255,255,.45);
+
+    margin-bottom:12px;
+
+}
+
+
+.section-heading h2{
+
+    font-size:42px;
+
+    font-weight:300;
+
+    letter-spacing:-.03em;
+
+}
+
+
+
+/* ============================================================
+   TABS
+============================================================ */
+
+.tabs{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-bottom:35px;
+
+}
+
+
+.tab{
+
+    border:
+        1px solid
+        rgba(255,255,255,.15);
+
+    background:transparent;
+
+    color:
+        rgba(255,255,255,.55);
+
+    padding:
+        11px
+        18px;
+
+    cursor:pointer;
+
+    font-size:10px;
+
+    letter-spacing:.15em;
+
+    text-transform:uppercase;
+
+    transition:.2s ease;
+
+}
+
+
+.tab:hover{
+
+    color:white;
+
+    border-color:
+        rgba(255,255,255,.35);
+
+}
+
+
+.tab.active{
+
+    color:#111;
+
+    background:#fff;
+
+    border-color:#fff;
+
+}
+
+
+
+/* ============================================================
+   PORTFOLIO PANELS
+============================================================ */
+
+.portfolio-panel{
+
+    display:none;
+
+}
+
+
+.portfolio-panel.active{
+
+    display:block;
+
+}
+
+
+
+/* ============================================================
+   JUSTIFIED GOOGLE PHOTOS STYLE GALLERY
+============================================================ */
+
+.gallery{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:4px;
+
+    align-items:flex-start;
+
+    width:100%;
+
+}
+
+
+.card{
+
+    cursor:pointer;
+
+    overflow:hidden;
+
+    position:relative;
+
+    margin:0;
+
+    padding:0;
+
+    line-height:0;
+
+    flex-grow:0;
+
+    flex-shrink:0;
+
+}
+
+
+.card img{
+
+    display:block;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:
+        transform .25s ease,
+        filter .25s ease;
+
+}
+
+
+.card:hover img{
+
+    transform:scale(1.025);
+
+    filter:brightness(1.06);
+
+}
+
+
+
+/* ============================================================
+   LIGHTBOX
+============================================================ */
+
+.lightbox{
+
+    position:fixed;
+
+    z-index:50;
+
+    inset:0;
+
+    background:
+        rgba(0,0,0,.95);
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:
+        5vh
+        8vw;
+
+}
+
+
+.lightbox.open{
+
+    display:flex;
+
+}
+
+
+.lightbox img{
+
+    max-width:88vw;
+
+    max-height:88vh;
+
+    width:auto;
+
+    height:auto;
+
+    object-fit:contain;
+
+}
+
+
+
+/* ============================================================
+   CLOSE BUTTON
+============================================================ */
+
+.close{
+
+    position:absolute;
+
+    top:24px;
+
+    right:28px;
+
+    font:
+        28px
+        Arial,
+        sans-serif;
+
+    color:white;
+
+    background:none;
+
+    border:0;
+
+    cursor:pointer;
+
+    z-index:5;
+
+}
+
+
+
+/* ============================================================
+   LIGHTBOX NAVIGATION
+============================================================ */
+
+.lightbox-nav{
+
+    position:absolute;
+
+    top:50%;
+
+    transform:
+        translateY(-50%);
+
+    width:48px;
+
+    height:70px;
+
+    border:0;
+
+    background:
+        rgba(255,255,255,.08);
+
+    color:white;
+
+    font:
+        38px
+        Arial,
+        sans-serif;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:.2s;
+
+    z-index:5;
+
+}
+
+
+.lightbox-nav:hover{
+
+    background:
+        rgba(255,255,255,.18);
+
+}
+
+
+.lightbox-prev{
+
+    left:20px;
+
+}
+
+
+.lightbox-next{
+
+    right:20px;
+
+}
+
+
+
+/* ============================================================
+   LIGHTBOX COUNTER
+============================================================ */
+
+.lightbox-counter{
+
+    position:absolute;
+
+    bottom:22px;
+
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size:11px;
+
+    letter-spacing:.15em;
+
+    text-transform:uppercase;
+
+    color:
+        rgba(255,255,255,.7);
+
+}
+
+
+
+/* ============================================================
+   ABOUT
+============================================================ */
+
+.about{
+
+    max-width:850px;
+
+}
+
+
+.about p{
+
+    font-size:17px;
+
+    line-height:1.9;
+
+    color:
+        rgba(255,255,255,.68);
+
+}
+
+
+
+/* ============================================================
+   CONTACT
+============================================================ */
+
+.contact{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0,1fr)
+        );
+
+    gap:40px;
+
+}
+
+
+.contact-item{
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.12);
+
+    padding-top:20px;
+
+}
+
+
+.contact-label{
+
+    font-size:10px;
+
+    letter-spacing:.2em;
+
+    text-transform:uppercase;
+
+    color:
+        rgba(255,255,255,.4);
+
+    margin-bottom:8px;
+
+}
+
+
+.contact-value{
+
+    font-size:17px;
+
+    color:
+        rgba(255,255,255,.75);
+
+}
+
+
+
+/* ============================================================
+   FOOTER
+============================================================ */
+
+footer{
+
+    padding:
+        45px
+        5vw;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.08);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    color:
+        rgba(255,255,255,.35);
+
+    font-size:10px;
+
+    letter-spacing:.15em;
+
+    text-transform:uppercase;
+
+}
+
+
+
+/* ============================================================
+   TABLET
+============================================================ */
+
+@media(max-width:900px){
+
+    .hero h1{
+
+        font-size:
+            clamp(
+                50px,
+                11vw,
+                90px
+            );
+
+    }
+
+}
+
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media(max-width:760px){
+
+    header{
+
+        padding:
+            18px
+            5vw;
+
+    }
+
+
+    nav{
+
+        gap:14px;
+
+    }
+
+
+    nav a{
+
+        font-size:9px;
+
+    }
+
+
+    section{
+
+        padding:
+            80px
+            5vw;
+
+    }
+
+
+    .lightbox{
+
+        padding:
+            5vh
+            5vw;
+
+    }
+
+
+    .lightbox img{
+
+        max-width:90vw;
+
+        max-height:85vh;
+
+    }
+
+
+    .lightbox-nav{
+
+        width:38px;
+
+        height:55px;
+
+        font-size:28px;
+
+    }
+
+
+    .lightbox-prev{
+
+        left:8px;
+
+    }
+
+
+    .lightbox-next{
+
+        right:8px;
+
+    }
+
+
+    .contact{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    footer{
+
+        flex-direction:column;
+
+    }
+
+}
+
+
+
+/* ============================================================
+   SMALL PHONES
+============================================================ */
+
+@media(max-width:480px){
+
+    .hero{
+
+        padding-bottom:60px;
+
+    }
+
+
+    .hero h1{
+
+        font-size:52px;
+
+    }
+
+
+    .tabs{
+
+        gap:6px;
+
+    }
+
+
+    .tab{
+
+        padding:
+            9px
+            12px;
+
+        font-size:9px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- ============================================================
+     HEADER
+============================================================ -->
+
+<header>
+
+<a href="#" class="logo">
+    The Hidden Wild
+</a>
+
+
+<nav>
+
+    <a href="#portfolio">
+        Portfolio
+    </a>
+
+    <a href="#about">
+        About
+    </a>
+
+    <a href="#contact">
+        Contact
+    </a>
+
+</nav>
+
+</header>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+    <div class="eyebrow">
+
+        Wildlife · Macro · Nature · Mobile
+
+    </div>
+
+
+    <h1>
+
+        The Hidden Wild
+
+    </h1>
+
+
+    <p>
+
+        A collection of moments found in the quiet places —
+        from birds in flight to tiny insects hidden among
+        leaves, and landscapes discovered through a mobile lens.
+
+    </p>
+
+</div>
+
+</section>
+
+<!-- ============================================================
+     PORTFOLIO
+============================================================ -->
+
+<section id="portfolio">
+
+<div class="section-heading">
+
+    <div class="section-label">
+
+        Photography
+
+    </div>
+
+
+    <h2>
+
+        Portfolio
+
+    </h2>
+
+</div>
+
+
+
+<!-- ========================================================
+     CATEGORY TABS
+======================================================== -->
+
+<div class="tabs">
+
+    <button
+        class="tab active"
+        data-target="panel-birds"
+    >
+        Birds
+    </button>
+
+
+    <button
+        class="tab"
+        data-target="panel-macro"
+    >
+        Macro
+    </button>
+
+
+    <button
+        class="tab"
+        data-target="panel-animals"
+    >
+        Animals
+    </button>
+
+
+    <button
+        class="tab"
+        data-target="panel-mobile"
+    >
+        Mobile Photography
+    </button>
+
+</div>
+
+
+
+<!-- ========================================================
+     BIRDS
+     
+     Add new bird photos here.
+     
+     Example:
+     photos/birds/bird3.jpg
+     
+     Just add another <article> block.
+======================================================== -->
+
+<div
+    class="portfolio-panel active"
+    id="panel-birds"
+>
+
+    <div class="gallery">
+
+
+        <article
+            class="card"
+            onclick="openLightbox(this)"
+        >
+
+            <img
+                src="photos/birds/bird1.jpg"
+                alt="Bird 1"
+                loading="eager"
+            >
+
+        </article>
+
+
+        <article
+            class="card"
+            onclick="openLightbox(this)"
+        >
+
+            <img
+                src="photos/birds/bird2.jpg"
+                alt="Bird 2"
+                loading="eager"
+            >
+
+        </article>	
+	
+
+
+    </div>
+
+</div>
+
+
+
+<!-- ========================================================
+     MACRO
+     
+     Add new macro photos here.
+     
+     Example:
+     photos/macro/macro2.jpg
+======================================================== -->
+
+<div
+    class="portfolio-panel"
+    id="panel-macro"
+>
+
+    <div class="gallery">
+
+
+        <article
+            class="card"
+            onclick="openLightbox(this)"
+        >
+
+            <img
+                src="photos/macro/macro1.jpg"
+                alt="Macro 1"
+                loading="eager"
+            >
+
+        </article>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- ========================================================
+     ANIMALS
+     
+     Add animal photos here.
+======================================================== -->
+
+<div
+    class="portfolio-panel"
+    id="panel-animals"
+>
+
+    <div class="gallery">
+
+
+        <!--
+        Example:
+
+        <article
+            class="card"
+            onclick="openLightbox(this)"
+        >
+
+            <img
+                src="photos/animals/animal1.jpg"
+                alt="Animal 1"
+                loading="eager"
+            >
+
+        </article>
+        -->
+
+
+        <p
+            style="
+                width:100%;
+                padding:40px 0;
+                color:rgba(255,255,255,.4);
+                font-size:13px;
+            "
+        >
+
+            No photographs in this collection yet.
+
+        </p>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- ========================================================
+     MOBILE PHOTOGRAPHY
+     
+     Add mobile photos here.
+======================================================== -->
+
+<div
+    class="portfolio-panel"
+    id="panel-mobile"
+>
+
+    <div class="gallery">
+
+
+        <!--
+        Example:
+
+        <article
+            class="card"
+            onclick="openLightbox(this)"
+        >
+
+            <img
+                src="photos/mobile/mobile1.jpg"
+                alt="Mobile Photography 1"
+                loading="eager"
+            >
+
+        </article>
+        -->
+
+
+        <p
+            style="
+                width:100%;
+                padding:40px 0;
+                color:rgba(255,255,255,.4);
+                font-size:13px;
+            "
+        >
+
+            No photographs in this collection yet.
+
+        </p>
+
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- ============================================================
+     ABOUT
+============================================================ -->
+
+<section id="about">
+
+<div class="section-heading">
+
+
+    <div class="section-label">
+
+        The Photographer
+
+    </div>
+
+
+    <h2>
+
+        About
+
+    </h2>
+
+
+</div>
+
+
+
+<div class="about">
+
+
+    <p>
+
+        I am Suvankar Ghosh, a scientist who loves photography.
+        Through The Hidden Wild, I explore the details of the
+        natural world — from birds and animals to insects,
+        textures, patterns and fleeting moments that are easy
+        to overlook.
+
+    </p>
+
+
+</div>
+
+</section>
+
+<!-- ============================================================
+     CONTACT
+============================================================ -->
+
+<section id="contact">
+
+<div class="section-heading">
+
+
+    <div class="section-label">
+
+        Get in touch
+
+    </div>
+
+
+    <h2>
+
+        Contact
+
+    </h2>
+
+
+</div>
+
+
+
+<div class="contact">
+
+
+    <div class="contact-item">
+
+
+        <div class="contact-label">
+
+            Instagram
+
+        </div>
+
+
+        <div class="contact-value">
+
+            <a
+                href="https://www.instagram.com/svnkr.gsh/"
+                target="_blank"
+            >
+
+                @svnkr.gsh
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="contact-item">
+
+
+        <div class="contact-label">
+
+            Email
+
+        </div>
+
+
+        <div class="contact-value">
+
+            <a href="mailto:svnkrgsh@email.com">
+
+                svnkrgsh@email.com
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+
+<footer>
+
+<div>
+
+    © 2026 Suvankar Ghosh
+
+</div>
+
+
+<div>
+
+    The Hidden Wild
+
+</div>
+
+</footer>
+
+<!-- ============================================================
+     LIGHTBOX
+============================================================ -->
+
+<div
+    class="lightbox"
+    id="lightbox"
+    onclick="closeLightbox()"
+>
+
+<button
+    class="close"
+    aria-label="Close"
+    onclick="
+        event.stopPropagation();
+        closeLightbox();
+    "
+>
+
+    &times;
+
+</button>
+
+
+
+<button
+    class="lightbox-nav lightbox-prev"
+    aria-label="Previous photo"
+    onclick="
+        event.stopPropagation();
+        previousPhoto();
+    "
+>
+
+    &#10094;
+
+</button>
+
+
+
+<img
+    id="lightboxImg"
+    src=""
+    alt=""
+    onclick="event.stopPropagation()"
+>
+
+
+
+<button
+    class="lightbox-nav lightbox-next"
+    aria-label="Next photo"
+    onclick="
+        event.stopPropagation();
+        nextPhoto();
+    "
+>
+
+    &#10095;
+
+</button>
+
+
+
+<div
+    class="lightbox-counter"
+    id="lightboxCounter"
+></div>
+
+</div>
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+
+<script>
+
+
+// ============================================================
+// TAB SWITCHING
+// ============================================================
+
+const tabs =
+    document.querySelectorAll(".tab");
+
+
+const panels =
+    document.querySelectorAll(
+        ".portfolio-panel"
+    );
+
+
+tabs.forEach(function(tab){
+
+    tab.addEventListener(
+        "click",
+        function(){
+
+            const target =
+                this.dataset.target;
+
+
+            tabs.forEach(function(item){
+
+                item.classList.remove(
+                    "active"
+                );
+
+            });
+
+
+            panels.forEach(function(panel){
+
+                panel.classList.remove(
+                    "active"
+                );
+
+            });
+
+
+            this.classList.add(
+                "active"
+            );
+
+
+            const targetPanel =
+                document.getElementById(
+                    target
+                );
+
+
+            if(targetPanel){
+
+                targetPanel.classList.add(
+                    "active"
+                );
+
+            }
+
+
+            setTimeout(function(){
+
+                if(targetPanel){
+
+                    arrangeGallery(
+                        targetPanel.querySelector(
+                            ".gallery"
+                        )
+                    );
+
+                }
+
+            }, 50);
+
+        }
+    );
+
+});
+
+
+
+// ============================================================
+// JUSTIFIED GALLERY
+// ============================================================
+
+function arrangeGallery(gallery){
+
+    if(!gallery){
+        return;
+    }
+
+
+    const cards =
+        Array.from(
+            gallery.querySelectorAll(
+                ".card"
+            )
+        );
+
+
+    if(!cards.length){
+        return;
+    }
+
+
+    const gap = 4;
+
+    const targetRowHeight = 180;
+
+    const galleryWidth =
+        gallery.clientWidth;
+
+
+    if(!galleryWidth){
+        return;
+    }
+
+
+    let row = [];
+
+    let aspectRatioSum = 0;
+
+
+    cards.forEach(function(card){
+
+        const img =
+            card.querySelector("img");
+
+
+        if(
+            !img.naturalWidth ||
+            !img.naturalHeight
+        ){
+
+            return;
+
+        }
+
+
+        const ratio =
+            img.naturalWidth /
+            img.naturalHeight;
+
+
+        row.push({
+
+            card: card,
+
+            ratio: ratio
+
+        });
+
+
+        aspectRatioSum += ratio;
+
+
+        const rowWidth =
+
+            aspectRatioSum *
+            targetRowHeight
+
+            +
+
+            gap *
+            (row.length - 1);
+
+
+        if(rowWidth >= galleryWidth){
+
+
+            const rowHeight =
+
+                (
+                    galleryWidth
+                    -
+                    gap *
+                    (row.length - 1)
+                )
+                /
+                aspectRatioSum;
+
+
+            row.forEach(
+                function(item){
+
+                    const width =
+
+                        item.ratio *
+                        rowHeight;
+
+
+                    item.card.style.width =
+                        Math.floor(width)
+                        + "px";
+
+
+                    item.card.style.height =
+                        Math.floor(rowHeight)
+                        + "px";
+
+                }
+            );
+
+
+            row = [];
+
+            aspectRatioSum = 0;
+
+        }
+
+    });
+
+
+    // ========================================================
+    // FINAL ROW
+    // ========================================================
+
+    if(row.length){
+
+
+        const rowHeight =
+
+            Math.min(
+
+                targetRowHeight,
+
+                (
+                    galleryWidth
+                    -
+                    gap *
+                    (row.length - 1)
+                )
+                /
+                aspectRatioSum
+
+            );
+
+
+        row.forEach(
+            function(item){
+
+                const width =
+
+                    item.ratio *
+                    rowHeight;
+
+
+                item.card.style.width =
+                    Math.floor(width)
+                    + "px";
+
+
+                item.card.style.height =
+                    Math.floor(rowHeight)
+                    + "px";
+
+            }
+        );
+
+    }
+
+}
+
+
+
+// ============================================================
+// ARRANGE ALL GALLERIES
+// ============================================================
+
+function arrangeAllGalleries(){
+
+    document
+        .querySelectorAll(
+            ".gallery"
+        )
+        .forEach(function(gallery){
+
+            arrangeGallery(
+                gallery
+            );
+
+        });
+
+}
+
+
+
+// ============================================================
+// WAIT FOR ALL IMAGES
+// ============================================================
+
+window.addEventListener(
+    "load",
+    function(){
+
+        arrangeAllGalleries();
+
+    }
+);
+
+
+
+// ============================================================
+// WINDOW RESIZE
+// ============================================================
+
+let resizeTimer;
+
+
+window.addEventListener(
+    "resize",
+    function(){
+
+        clearTimeout(
+            resizeTimer
+        );
+
+
+        resizeTimer =
+            setTimeout(
+                function(){
+
+                    arrangeAllGalleries();
+
+                },
+                150
+            );
+
+    }
+);
+
+
+
+// ============================================================
+// LIGHTBOX VARIABLES
+// ============================================================
+
+let currentGallery = [];
+
+let currentIndex = 0;
+
+
+
+// ============================================================
+// OPEN LIGHTBOX
+// ============================================================
+
+function openLightbox(element){
+
+    const panel =
+        element.closest(
+            ".portfolio-panel"
+        );
+
+
+    if(!panel){
+        return;
+    }
+
+
+    const images =
+        Array.from(
+            panel.querySelectorAll(
+                ".card img"
+            )
+        );
+
+
+    currentGallery =
+        images.map(
+            function(img){
+
+                return {
+
+                    src: img.src,
+
+                    alt: img.alt
+
+                };
+
+            }
+        );
+
+
+    currentIndex =
+        images.indexOf(
+            element.querySelector(
+                "img"
+            )
+        );
+
+
+    if(currentIndex < 0){
+
+        currentIndex = 0;
+
+    }
+
+
+    showPhoto();
+
+
+    document
+        .getElementById(
+            "lightbox"
+        )
+        .classList.add(
+            "open"
+        );
+
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+
+// ============================================================
+// SHOW CURRENT PHOTO
+// ============================================================
+
+function showPhoto(){
+
+    const photo =
+        currentGallery[
+            currentIndex
+        ];
+
+
+    if(!photo){
+        return;
+    }
+
+
+    const image =
+        document.getElementById(
+            "lightboxImg"
+        );
+
+
+    image.src =
+        photo.src;
+
+
+    image.alt =
+        photo.alt;
+
+
+    document
+        .getElementById(
+            "lightboxCounter"
+        )
+        .textContent =
+
+        (currentIndex + 1)
+        +
+        " / "
+        +
+        currentGallery.length;
+
+}
+
+
+
+// ============================================================
+// PREVIOUS PHOTO
+// ============================================================
+
+function previousPhoto(){
+
+    if(!currentGallery.length){
+        return;
+    }
+
+
+    currentIndex =
+
+        (
+            currentIndex
+            -
+            1
+            +
+            currentGallery.length
+        )
+
+        %
+
+        currentGallery.length;
+
+
+    showPhoto();
+
+}
+
+
+
+// ============================================================
+// NEXT PHOTO
+// ============================================================
+
+function nextPhoto(){
+
+    if(!currentGallery.length){
+        return;
+    }
+
+
+    currentIndex =
+
+        (
+            currentIndex
+            +
+            1
+        )
+
+        %
+
+        currentGallery.length;
+
+
+    showPhoto();
+
+}
+
+
+
+// ============================================================
+// CLOSE LIGHTBOX
+// ============================================================
+
+function closeLightbox(){
+
+    document
+        .getElementById(
+            "lightbox"
+        )
+        .classList.remove(
+            "open"
+        );
+
+
+    document
+        .getElementById(
+            "lightboxImg"
+        )
+        .src = "";
+
+
+    document.body.style.overflow =
+        "";
+
+}
+
+
+
+// ============================================================
+// KEYBOARD CONTROLS
+// ============================================================
+
+document.addEventListener(
+    "keydown",
+    function(e){
+
+        const lightbox =
+            document.getElementById(
+                "lightbox"
+            );
+
+
+        if(
+            !lightbox.classList.contains(
+                "open"
+            )
+        ){
+
+            return;
+
+        }
+
+
+        if(e.key === "Escape"){
+
+            closeLightbox();
+
+        }
+
+
+        if(e.key === "ArrowLeft"){
+
+            previousPhoto();
+
+        }
+
+
+        if(e.key === "ArrowRight"){
+
+            nextPhoto();
+
+        }
+
+    }
+);
+
+
+</script>
+
+</body>
+
+</html>
+
