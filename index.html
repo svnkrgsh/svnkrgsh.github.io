@@ -1172,6 +1172,8 @@ footer{
         </article>
 
 
+        
+
         <article
             class="card"
             onclick="openLightbox(this)"
@@ -1320,11 +1322,7 @@ footer{
                 color:rgba(255,255,255,.4);
                 font-size:13px;
             "
-        >
-
-            No photographs in this collection yet.
-
-        </p>
+         class="no-photos-message" style="display:none;">No photographs available yet.</p>
 
 
     </div>
@@ -1464,11 +1462,7 @@ footer{
                 color:rgba(255,255,255,.4);
                 font-size:13px;
             "
-        >
-
-            No photographs in this collection yet.
-
-        </p>
+         class="no-photos-message" style="display:none;">No photographs available yet.</p>
 
 
     </div>
@@ -1978,6 +1972,61 @@ function arrangeGallery(gallery){
 // ARRANGE ALL GALLERIES
 // ============================================================
 
+function normalizeImageUrl(url) {
+    if (!url) return url;
+
+    const fileMatch = url.match(
+        /https?:\/\/drive\.google\.com\/file\/d\/([^/]+)\/(?:view|preview)(?:\?.*)?/i
+    );
+    if (fileMatch) {
+        return "https://drive.google.com/thumbnail?id=" +
+               encodeURIComponent(fileMatch[1]) + "&sz=w2400";
+    }
+
+    const openMatch = url.match(
+        /https?:\/\/drive\.google\.com\/open\?id=([^&]+)/i
+    );
+    if (openMatch) {
+        return "https://drive.google.com/thumbnail?id=" +
+               encodeURIComponent(openMatch[1]) + "&sz=w2400";
+    }
+
+    const ucMatch = url.match(
+        /https?:\/\/drive\.google\.com\/uc\?export=view&id=([^&]+)/i
+    );
+    if (ucMatch) {
+        return "https://drive.google.com/thumbnail?id=" +
+               encodeURIComponent(ucMatch[1]) + "&sz=w2400";
+    }
+
+    return url;
+}
+
+function prepareGalleryImages() {
+    document.querySelectorAll(".gallery img").forEach(function(img) {
+        const originalSrc = img.getAttribute("src");
+        const normalizedSrc = normalizeImageUrl(originalSrc);
+
+        if (normalizedSrc && normalizedSrc !== originalSrc) {
+            img.setAttribute("data-original-src", originalSrc);
+            img.src = normalizedSrc;
+        }
+
+        const gallery = img.closest(".gallery");
+
+        if (img.complete && img.naturalWidth > 0 && gallery) {
+            arrangeGallery(gallery);
+        }
+
+        img.addEventListener("load", function() {
+            const currentGallery = img.closest(".gallery");
+            if (currentGallery) {
+                arrangeGallery(currentGallery);
+            }
+        });
+    });
+}
+
 function arrangeAllGalleries(){
 
     document
@@ -2000,14 +2049,14 @@ function arrangeAllGalleries(){
 // WAIT FOR ALL IMAGES
 // ============================================================
 
-window.addEventListener(
-    "load",
-    function(){
+window.addEventListener("load", function(){
+    prepareGalleryImages();
+    arrangeAllGalleries();
 
-        arrangeAllGalleries();
-
-    }
-);
+    // Re-run after local and Google Drive images finish loading.
+    setTimeout(arrangeAllGalleries, 100);
+    setTimeout(arrangeAllGalleries, 500);
+});
 
 
 
